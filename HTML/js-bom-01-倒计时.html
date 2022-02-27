@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+
+<body>
+    <span class="hour"></span>
+    <span class="minute"></span>
+    <span class="second"></span>
+
+    <script>
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        var time = '2021-12-12 19:00:00';
+
+        // 先调用一次函数，防止第一次刷新时页面空白
+        countDown();
+        // 开启定时器
+        setInterval(countDown, 1000);
+
+        // 倒计时函数
+        function countDown() {
+            var nowTime = +new Date(); //返回当前时间的毫秒数
+            var inputTime = +new Date(time); //返回用户输入时间的毫秒数
+            var times = (inputTime - nowTime) / 1000; //剩余时间的总秒数
+            //转化为整数
+            var h = parseInt(times / 60 % 24); //时
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h; // 写入标签
+
+            var m = parseInt(times / 60 % 60); //分
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m; // 写入标签
+
+            var s = parseInt(times % 60); //秒
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s; // 写入标签
+        }
+    </script>
+</body>
+
+</html>

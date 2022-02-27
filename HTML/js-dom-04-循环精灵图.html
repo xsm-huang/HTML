@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环精灵图</title>
+
+    <style>
+        div {
+            width: 250px;
+            margin: 100px auto;
+        }
+
+        div li {
+            list-style-type: none;
+            float: left;
+            width: 24px;
+            height: 24px;
+            background-color: bisque;
+            margin: 15px;
+            background: url(img/10-精灵图.png) no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var li = document.querySelectorAll('li');
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].style.backgroundPosition = '0 -' + i * 44 + 'px';
+        }
+    </script>
+</body>
+
+</html>

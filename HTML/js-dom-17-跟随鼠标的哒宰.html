@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跟随鼠标的哒宰</title>
+    <style>
+        * {
+            cursor: none;
+        }
+
+        img {
+            position: absolute;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/14-太宰治6.gif" alt="">
+    <script>
+        var img = document.querySelector('img');
+        // 鼠标移动事件
+        document.addEventListener('mousemove', function(e) {
+            let x = e.pageX;
+            let y = e.pageY;
+            img.style.left = x - 25 + 'px';
+            img.style.top = y + 'px';
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="time">19-11-11</div>
+    <script>
+        var timer = document.getElementById('time');
+        console.log(timer);
+        console.log(typeof timer);
+        console.dir(timer);
+    </script> -->
+
+    <!-- <ul>
+            <li>abc</li>
+        </ul>
+        <ol>
+            <li>123</li>
+            <li>123</li>
+        </ol>
+        <script>
+            // 返回的是获取过来的元素对象的集合，以伪数组的形式存储的
+            var lis = document.getElementsByTagName('li');
+            // console.log(lis);
+            // console.log(lis[0]);
+            // 采取遍历的方式依次打印元素
+            for(let i = 0; i < lis.length; i++) {
+                console.log(lis[i]);
+            }
+        </script> -->
+
+    <!-- <ul>
+            <li>abc</li>
+        </ul>
+        <ol id = 'ol'>
+            <li>123</li>
+            <li>123</li>
+        </ol>
+        <script>
+            var ol = document.getElementById('ol');
+            var li = ol.getElementsByTagName('li');
+            for(let i = 0; i < li.length; i++) {
+                console.log(li[i]);
+            }
+        </script> -->
+
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>abc</li>
+            <li>123</li>
+        </ul>
+    </div>
+
+    <script>
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);
+        var firstBox = document.querySelector('.box');
+        console.log(firstBox);
+        var nav = document.querySelector('#nav');
+        console.log(nav);
+        var allBox = document.querySelector('.box');
+        console.log(allBox);
+    </script>
+</body>
+
+</html>

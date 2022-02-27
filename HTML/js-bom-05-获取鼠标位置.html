@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取鼠标位置</title>
+    <style>
+        div {
+            margin: 30px;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var box = document.querySelector('div');
+        box.addEventListener('click', function(e) {
+            this.innerHTML = "x 坐标:" + (e.pageX - this.offsetLeft) + '<br/>y 坐标:' + (e.pageY - this.offsetTop)
+            // console.log(e.pageX - this.offsetLeft); // x 坐标
+            // console.log(e.pageY - this.offsetTop); // y 坐标
+        })
+    </script>
+</body>
+
+</html>

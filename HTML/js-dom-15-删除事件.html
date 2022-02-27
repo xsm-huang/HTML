@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        var divs = document.querySelectorAll('div');
+        // 传统事件注册方式
+        divs[0].onclick = function() {
+            alert('11');
+            // 传统事件删除方式
+            divs[0].onclick = null;
+        }
+
+        // 方法监听注册方式
+        divs[1].addEventListener('click', fn1); // 绑定事件处理函数不需要加小括号
+        function fn1() {
+            alert('22');
+            divs[1].removeEventListener('click', fn1);
+        }
+
+        // 不推荐使用该注册方式,ie老版本支持
+        // divs[1].attachEvent('click', fn2); // 绑定事件处理函数不需要加小括号
+        // function fn2() {
+        //     alert('33');
+        //     divs[2].attachEvent('onclick', fn2);
+        // }
+    </script>
+</body>
+
+</html>

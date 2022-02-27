@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的使用</title>
+</head>
+<script>
+    /* 
+    var myname = prompt('your name:');
+    alert(myname);
+    alert(Number.MAX_VALUE);
+    alert(Number.MIN_VALUE);
+    var a = "hello \n world";
+    console.log(a);
+    */
+
+    /* 
+    var strMsg = "hello world!";
+    console.log(strMsg.length);
+    */
+
+    /* 
+    var space = null;
+    console.log(space + '你好'); // null你好
+    console.log(space + 1) // 1
+
+    var variable = undefined;
+    console.log(variable + '你好'); // undefined你好
+    console.log(variable + 1); // NaN  undefined 和数字类型相加，结果是NaN
+    */
+
+    /* 
+    var num = 10;
+    console.log(typeof num); //number
+
+    var str = 'xsm';
+    console.log(typeof str); //string
+
+    var flag = true;
+    console.log(typeof flag); //boolean
+
+    var vari = undefined;
+    console.log(typeof vari); //undefined
+
+    var timer = null;
+    console.log(typeof timer); //null  
+    */
+
+
+    /* 
+    var age = prompt("年龄");
+    console.log(age);
+    console.log(typeof age); 
+    */
+
+    /* 
+    var num = 1;
+    console.log(typeof num.toString());
+
+    var num = 1;
+    console.log(typeof String(num)); 
+    */
+
+    /* 
+    var str1 = '12';
+    var str2 = '13.9';
+    var str3 = '120.9px';
+    var str4 = 'rem120px';
+    console.log(parseInt(str1) + ' ' + typeof parseInt(str1));
+    console.log(parseInt(str2) + ' ' + typeof parseInt(str2));
+    console.log(parseInt(str3) + ' ' + typeof parseInt(str3)); // 120number
+    console.log(parseInt(str4) + ' ' + typeof parseInt(str4)); // NaNnumber
+    */
+
+    /* 
+    var str1 = '12';
+    var str2 = '13.9';
+    console.log(parseFloat(str1) + ' ' + typeof parseInt(str1)); // 12number
+    console.log(parseFloat(str2) + ' ' + typeof parseInt(str2)); // 13number
+    */
+
+    /* 
+    var str1 = '12';
+    var str2 = '12.9';
+    var str3 = '120.9px';
+    console.log(Number(str1) + ' ' + typeof Number(str1)); // 12 number
+    console.log(Number(str2) + ' ' + typeof Number(str2)); // 12.9 number
+    console.log(Number(str3) + ' ' + typeof Number(str3)); // NaN number 
+    */
+    /* 
+    console.log(Boolean('')); // false
+    console.log(Boolean(0)); // false
+    console.log(Boolean(NaN)); // false
+    console.log(Boolean(null)); // false
+    console.log(Boolean(undefined)); // false
+    console.log(Boolean('小白')); //true
+    console.log(Boolean(12)); // true
+    console.log(Boolean(' ')); // true 
+    */
+
+    var str1 = prompt('name:');
+    var str2 = prompt('age');
+    var str3 = prompt('sex');
+    alert('你的姓名是：' + str1 + '\n' +
+        '你的年龄是：' + str2 + '\n' +
+        '你的性别是：' + str3);
+</script>
+
+<body>
+
+</body>
+
+</html>

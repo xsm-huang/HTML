@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Normalize.css">
+    <style>
+        /* ===========按钮=========== */
+        .openBox a {
+            /* 去除文本修饰 */
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* ===========模态框=========== */
+        .box {
+            position: absolute;
+            top: calc(50vh - 100px);
+            left: calc(50vw - 170px);
+            width: 340px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px 0px #333;
+            background-color: #fff;
+            z-index: 100;
+            /* 隐藏模态框 */
+            display: none;
+        }
+
+        /* 关闭按钮 */
+        .b_close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        /* 标题 */
+        .b_title {
+            padding: 16px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        /* 输入栏 */
+        .b_input div {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .b_input label {
+            /* float: left; */
+            /* margin-left: 20px; */
+            display: inline-block;
+            width: 64px;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .b_input input {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 登陆按钮 */
+        .b_loginbutton {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .b_loginbutton input {
+            background-color: #fff;
+            width: 70px;
+            height: 36px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            cursor: pointer;
+        }
+
+        /* ===========遮罩层=========== */
+        .bg {
+            background-color: rgb(153, 153, 153, .5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100vw);
+            height: calc(100vh);
+            /* 隐藏遮罩层 */
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="openBox"><a href="#">模态框</a></div>
+    <!-- 模态框 -->
+    <div class="box">
+        <div class="b_close">×</div>
+        <div class="b_title">登陆</div>
+        <div class="b_input">
+            <div>
+                <label>用户名：</label>
+                <input type="text" placeholder="请输入用户名">
+            </div>
+            <div>
+                <label>密 码：</label>
+                <input type="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="b_loginbutton"><input type="submit" value="登陆"></div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="bg"></div>
+
+    <script>
+        var openBox = document.querySelector('.openBox');
+        var box = document.querySelector('.box');
+        var bg = document.querySelector('.bg');
+
+        // 点击事件显示模态框
+        openBox.addEventListener('click', function(e) {
+            boxOpen();
+        })
+
+        var b_close = document.querySelector('.b_close');
+        // 点击事件关闭模态框
+        b_close.addEventListener('click', function(e) {
+            boxClose();
+        })
+
+        var loginbutton = document.querySelector('.b_loginbutton').firstElementChild;
+        // 登陆按钮，登陆后关闭模态框
+        loginbutton.addEventListener('click', function() {
+            // 。。。省略部分代码
+            boxClose();
+        })
+
+        var boxOpen = function() { // 显示模态框
+            box.style.display = 'block';
+            bg.style.display = 'block';
+        }
+        var boxClose = function() { // 关闭模态框
+            box.style.display = 'none';
+            bg.style.display = 'none';
+        }
+
+        var b_title = document.querySelector('.b_title');
+        // 拖动模态框事件
+        b_title.addEventListener('mousedown', function(e) { // 鼠标按下
+            // 获取鼠标相对模态框 box 的 x 和 y 坐标
+            var x = e.pageX - box.offsetLeft;
+            var y = e.pageY - box.offsetTop;
+            b_title.addEventListener('mousemove', move) // 鼠标移动
+
+
+        })
+        b_title.addEventListener('mouseup', function() { // 鼠标弹起
+            b_title.removeEventListener('mousemove', move); // 取消移动事件绑定
+        })
+
+        function move(e) { // 移动事件
+            // 根据鼠标在页面中的坐标动态改变模态框的位置，即 left 和 top 值
+            box.style.left = e.pageX - x + 'px';
+            box.style.top = e.pageY - y + 'px';
+        }
+    </script>
+</body>
+
+</html>

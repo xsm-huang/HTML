@@ -1,0 +1,54 @@
+<!-- 轮播图工具 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/Normalize.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Demo styles -->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- 轮播图 -->
+    <div class="lp">
+        <!-- Swiper -->
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/pt_1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/pt_2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/pt_3.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="images/pt_4.jpg" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="js/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>

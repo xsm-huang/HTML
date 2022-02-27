@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: cornflowerblue;
+        }
+
+        .tow {
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one"></div>
+    <div class="tow"></div>
+    <script>
+        var div = document.querySelector('div');
+        // var timer = setInterval(function() {
+        //     if (div.offsetLeft >= 410) {
+        //         // 停止动画，结束定时器
+        //         clearInterval(timer);
+        //     }
+        //     div.style.left = div.offsetLeft + 1 + 'px';
+        // }, 10)
+
+        // 封装动画函数
+        function animate(obj, target) {
+            // 多次调用该函数会导致元素移动速度越来越快，因为开启过多定时器
+            // 因此需要使元素只有一个定时器
+            // 先清除原先的定时器，确保当前只有一个定时器
+            clearInterval(obj.timer);
+            // 利用给对象添加属性的方式添加定时器，不用重新开辟内存空间
+            obj.timer = setInterval(function() {
+                if (obj.offsetLeft >= target) {
+                    // 停止动画，结束定时器
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 30)
+        }
+
+        // 封装缓动动画函数
+        function animate2(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                // 避免浮点数运算
+                let step = (target - obj.offsetLeft) / 40;
+                // 正直向上取整，负值向下取整
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft >= target) {
+                    // 停止动画，结束定时器
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 30)
+        }
+
+        // 封装回调动画函数
+        function animate3(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                if (obj.offsetLeft >= target) {
+                    // 停止动画，结束定时器
+                    clearInterval(obj.timer);
+                    // 回调函数写道定时器结束里面
+                    if (callback) callback();
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 30)
+        }
+        var one = document.querySelector('.one');
+        var tow = document.querySelector('.tow');
+        animate(one, 300);
+        // tow.style.backgroundColor = 'red';
+        animate3(tow, 100, function() {
+            tow.style.backgroundColor = 'red';
+        });
+    </script>
+</body>
+
+</html>

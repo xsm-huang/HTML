@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+<script>
+    // var arr = [1, 2, '小白', true];
+    // console.log(arr);
+    // console.log(arr[3]);
+    // console.log(arr[4]); //没有这个数组元素，所以输出的结果是undefined
+
+    // var arr = [1, 2, '小白', true];
+    // console.log(arr.length);
+    // for (var i = 0; i < arr.length; i++) {
+    //     console.log(arr[i]);
+    // }
+
+    // var str = 'hello world';
+    // var num = 100;
+    // console.log(str);
+    // console.log(num);
+    // console.log(str, num); //输出多个变量，用逗号隔开
+
+    // var arr = [1, 2, '小白', true];
+    // console.log(arr.length);
+    // arr.length = 5;
+    // console.log(arr);
+    // console.log(arr[3]);
+    // console.log(arr[4]);
+
+
+    // var arr = [1, 2, '小白', true];
+    // arr[4] = 'hello';
+    // console.log(arr);
+    // arr[5] = 1;
+    // console.log(arr);
+    // arr[0] = 'world';
+    // console.log(arr);
+
+    //筛选出数组中大于10的数，放入新的数组
+    // var arr = [2, 99, 3, 8, 23, 52, 0, 3, 19];
+    // var newArr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] >= 10) {
+    //         newArr[newArr.length] = arr[i];
+    //     }
+    // }
+    // console.log(newArr);
+
+
+    // var arr = [2, 4, 1, 0, 4, 7];
+    // for (var i = 0; i < arr.length - 1; i++) {
+    //     for (var j = 0; j < arr.length - 1 - i; j++) {
+    //         if (arr[j] < arr[j + 1]) {
+    //             var temp = arr[j];
+    //             arr[j] = arr[j + 1];
+    //             arr[j + 1] = temp;
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+
+
+    // function fn() {
+    //     console.log(arguments);
+    //     console.log(arguments.length);
+    //     console.log(arguments[1]);
+    // }
+
+    // fn(1, 2, 3);
+
+
+    // function getMax() {
+    //     var max = arguments[0];
+    //     for (var i = 1; i < arguments.length; i++) {
+    //         if (arguments[i] > max) {
+    //             max = arguments[i];
+    //         }
+    //     }
+    //     return max;
+    // }
+
+    // var max = getMax(2, 55, 3, 7, 32, 12, 87, 43, 8);
+    // console.log(max);
+
+    var num = 10;
+
+    function fn() {
+        var num = 20;
+
+        function fn() {
+            console.log(num); // 20
+        }
+        fn();
+    }
+
+    fn();
+</script>
+
+<body>
+
+</body>
+
+</html>

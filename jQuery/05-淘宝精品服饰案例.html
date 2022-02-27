@@ -1,0 +1,108 @@
+<!-- 
+    淘宝服饰精品案例
+    鼠标经过显示隐藏图片
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .box {
+            margin: 20px auto;
+            width: 500px;
+            height: 400px;
+            border: 2px solid #ccc;
+        }
+
+        .left {
+            float: left;
+            width: 20%;
+            height: 100%;
+        }
+
+        .left ul {
+            height: 100%;
+        }
+
+        .left li {
+            box-sizing: border-box;
+            width: 100%;
+            height: 20%;
+            text-align: center;
+            font-size: 14px;
+            line-height: 80px;
+            background-color: aquamarine;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .right {
+            float: left;
+            width: 80%;
+            height: 100%;
+        }
+
+        .right div {
+            display: none;
+        }
+
+        .right div:nth-child(1) {
+            display: block;
+        }
+
+        .right img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left">
+            <ul>
+                <li><a href="#">哒宰1</a></li>
+                <li><a href="#">哒宰2</a></li>
+                <li><a href="#">哒宰1</a></li>
+                <li><a href="#">哒宰2</a></li>
+                <li><a href="#">哒宰1</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <div><a href="#"><img src="images/01-太宰1.jpg" alt=""></a></div>
+            <div><a href="#"><img src="images/02-太宰2.jpg" alt=""></a></div>
+            <div><a href="#"><img src="images/01-太宰1.jpg" alt=""></a></div>
+            <div><a href="#"><img src="images/02-太宰2.jpg" alt=""></a></div>
+            <div><a href="#"><img src="images/01-太宰1.jpg" alt=""></a></div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $('.left li').mouseover(function () {
+                var index = $(this).index();
+                // $('.right div').hide();
+                // $('.right div').eq(index).show();
+                // 链式编程方法
+                $('.right div').eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

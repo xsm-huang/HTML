@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据接收页</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // console.log(location.search);
+        // 去掉 ？  截取字符串 
+        var params = location.search.substr(1);
+        // 利用等号将字符串分割成数组
+        var arr = params.split('=');
+
+        var div = document.querySelector('div');
+        // 把数据写入标签中
+        div.innerHTML = arr[1] + ' 欢迎你！'
+    </script>
+</body>
+
+</html>

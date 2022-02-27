@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态生成表格</title>
+    <style>
+        * {
+            margin: 0 0;
+            padding: 0 0;
+        }
+
+        table {
+            width: 500px;
+            margin: 50px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #999;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid #666;
+            /* line-height: 30px; */
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // 使用数组，数组中的元素是 对象，对象中存放数据
+        var datas = [{
+            name: 'Jone',
+            subject: 'JavaScript',
+            score: '100',
+        }, {
+            name: 'mike',
+            subject: 'JavaScript',
+            score: '98',
+        }, {
+            name: 'apple',
+            subject: 'JavaScript',
+            score: '90',
+        }, {
+            name: 'dom',
+            subject: 'JavaScript',
+            score: '88',
+        }, ];
+        // 在 tbody 中 创建行，有几个人创建几行
+        var tbody = document.querySelector('tbody');
+        for (let i = 0; i < datas.length; i++) {
+            // 创建行
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            // 行里面创建单元格，数量取决于每个对象里面的属性个数
+            for (let k in datas[i]) { // 遍历对象
+                // 创建单元格
+                let td = document.createElement('td');
+                // 把属性值给单元格
+                td.innerHTML = datas[i][k];
+                tr.appendChild(td);
+            }
+            // 创建有 删除 的单元格
+            let td = document.createElement('td');
+            td.innerHTML = "<a href='javascript:;'>删除</a>"
+            tr.appendChild(td);
+        }
+        // 删除操作
+        var as = document.querySelectorAll('a');
+        for (let i = 0; i < as.length; i++) {
+            // 注册事件
+            as[i].onclick = function() {
+                // 删除 a 标签的父标签（td）的父标签（tr），即tbody的子标签
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</body>
+
+</html>

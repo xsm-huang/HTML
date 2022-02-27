@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Normalize.css">
+    <style>
+        /* 图片 */
+        .imgbox {
+            position: relative;
+            margin: 10px;
+            width: 506px;
+            height: 506px;
+            border: 1px solid #999;
+        }
+
+        .tz {
+            width: 500px;
+            height: 500px;
+            margin: 3px;
+        }
+
+        /* 黄色遮挡层 */
+        .look {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 250px;
+            background-color: rgba(253, 242, 143, 0.5);
+            cursor: move;
+            display: none;
+        }
+
+        /* 大图片 */
+        .view {
+            position: absolute;
+            left: 530px;
+            top: 10px;
+            width: 400px;
+            height: 500px;
+            overflow: hidden;
+            border: 1px solid #999;
+            display: none;
+        }
+
+        .tz_big {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 1000px;
+            height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgbox">
+        <img src="img/01-太宰治.png" alt="" class="tz">
+        <div class="look"></div>
+    </div>
+    <div class="view"><img src="img/01-太宰治.png" alt="" class="tz_big"></div>
+
+    <script>
+        var imgbox = document.querySelector('.imgbox');
+        var look = document.querySelector('.look');
+        var view = document.querySelector('.view');
+        var tz_big = document.querySelector('.tz_big');
+        // 鼠标经过小图片盒子，黄色的遮挡层和大图片盒子显示，离开隐藏2个盒子功能
+        imgbox.addEventListener('mouseover', function(e) { // 鼠标经过
+
+            look.style.display = 'block';
+            view.style.display = 'block';
+        })
+        imgbox.addEventListener('mouseout', function(e) { // 鼠标离开
+            look.style.display = 'none';
+            view.style.display = 'none';
+        })
+        // 黄色的遮挡层跟随鼠标功能
+        imgbox.addEventListener('mousemove', function(e) { // 鼠标移动
+            // 计算鼠标在盒子内的坐标
+            let x = e.pageX - this.offsetLeft;
+            let y = e.pageY - this.offsetTop;
+            // 将 x y 赋值给遮挡层
+            // 限制遮挡层上下的移动距离，不超出盒子
+            let look_top = (y - look.offsetHeight / 2);
+            let look_max_y = this.offsetHeight - look.offsetHeight;
+            if (look_top < 0) look_top = 0;
+            else if (look_top > (look_max_y))
+                look_top = look_max_y;
+            look.style.top = look_top + 'px';
+
+            // 限制遮挡层的左右移动距离，不超出盒子
+            let look_left = (x - look.offsetWidth / 2);
+            let look_max_x = this.offsetWidth - look.offsetWidth;
+            if (look_left < 0) look_left = 0 + 'px';
+            else if (look_left > (look_max_x))
+                look_left = look_max_x;
+            look.style.left = look_left + 'px';
+
+            // 大图片跟随移动：大图片移动距离 = 遮挡层移动距离 * 大图片最大移动距离 / 遮挡层最大移动距离
+            // 大图反方向移动
+            tz_big.style.top = -(look_top * (tz_big.offsetHeight - view.offsetHeight) / look_max_y) + 'px';
+            tz_big.style.left = -(look_left * (tz_big.offsetWidth - view.offsetWidth) / look_max_x) + 'px';
+        })
+    </script>
+</body>
+
+</html>

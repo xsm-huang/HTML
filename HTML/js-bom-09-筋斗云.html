@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Normalize.css">
+    <style>
+        .nav {
+            position: relative;
+            background-color: rgb(245, 218, 128);
+            width: 80%;
+            height: 40px;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+
+        .cloud {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70px;
+            height: 40px;
+            /* background-color: rgb(128, 54, 54); */
+            background-image: url(img/15-筋斗云.png);
+            background-size: 70px 40px;
+        }
+
+        .dh {
+            position: relative;
+            margin: 0;
+            list-style-type: none;
+            padding: 0;
+            margin-left: 10px;
+            height: 40px;
+        }
+
+        .dh li {
+            /* list-style-type: none; */
+            float: left;
+            /* margin-left: 20px; */
+            width: 70px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .dh li:hover {
+            color: rgb(255, 255, 255, .9);
+            font-weight: 700;
+        }
+    </style>
+    <script src="js/animate.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            var cloud = document.querySelector('.cloud');
+            var nav = document.querySelector('.nav');
+            var lis = document.querySelector('.dh').querySelectorAll('li');
+            var cloudPosition = 0;
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].addEventListener('mouseenter', function() {
+                    // console.log(this.offsetLeft);
+                    animate(cloud, this.offsetLeft);
+                })
+                lis[i].addEventListener('mouseleave', function() {
+                    animate(cloud, cloudPosition);
+                })
+                lis[i].addEventListener('click', function() {
+                    cloudPosition = this.offsetLeft;
+                })
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="cloud"></div>
+        <ul class="dh">
+            <li>筋斗云</li>
+            <li>孙悟空</li>
+            <li>猪八戒</li>
+            <li>唐玄宗</li>
+            <li>李世民</li>
+        </ul>
+    </div>
+</body>
+
+</html>

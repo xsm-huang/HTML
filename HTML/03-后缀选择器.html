@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后缀选择器</title>
+    <style>
+        p:nth-of-type(2n+1) {
+            /* 奇数段 */
+            color: blue;
+            font-weight: 700;
+        }
+
+        p:nth-child(2n+1) {
+            /* 奇数段 */
+            background: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <div>《div》这段不参与 nth-of-type 的计数、却是 nth-child 的第一段</div>
+        <p>《p》nth-of-type 的第一段、nth-child 的第二段</p>
+        <p>《p》nth-of-type 的第二段、nth-child 的第三段</p>
+        <div>《div》这段不参与 nth-of-type 的计数、却是 nth-child 的第四段</div>
+        <p>《p》nth-of-type 的第三段、nth-child 的第五段</p>
+        <p>《p》nth-of-type 的第四段、nth-child 的第六段</p>
+    </ul>
+</body>
+
+</html>

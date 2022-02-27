@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            margin: 40px;
+            /* background-color: #999; */
+            width: 400px;
+            height: 100px;
+
+        }
+
+        .con {
+            box-sizing: border-box;
+            width: 200px;
+            /* height: 50px; */
+            margin: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 4px 0 #666;
+            font-size: 32px;
+            line-height: 40px;
+            display: none;
+        }
+
+        input {
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            width: 200px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="con"></div>
+        <input type="text">
+    </div>
+    <script>
+        var con = document.querySelector('.con');
+        var input = document.querySelector('input');
+        input.addEventListener('keyup', function(e) {
+            if (input.value == '') {
+                con.style.display = 'none';
+            } else {
+                con.style.display = 'block'
+                con.innerHTML = input.value;
+            }
+        })
+    </script>
+</body>
+
+</html>

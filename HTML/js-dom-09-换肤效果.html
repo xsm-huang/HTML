@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>换肤效果</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0 0;
+        margin: 0 0;
+    }
+
+    body {
+        background: url(img/04-太宰1.jpg);
+    }
+
+    ul {
+        margin: 60px auto;
+        width: 360px;
+    }
+
+    li {
+        list-style: none;
+        float: left;
+        background-color: #fff;
+        padding: 5px;
+        height: 110px;
+    }
+
+    ul img {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<body>
+    <ul>
+        <li><img src="img/04-太宰1.jpg" alt=""></li>
+        <li><img src="img/05-太宰2.jpg" alt=""></li>
+        <li><img src="img/07-太宰3.jpg" alt=""></li>
+    </ul>
+
+    <script>
+        // 获取元素 缩小获取元素的范围
+        var img = document.querySelector('ul').querySelectorAll('img');
+
+        // 循环注册事件
+        for (let i = 0; i < img.length; i++) {
+            img[i].onclick = function() {
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+
+        }
+    </script>
+</body>
+
+</html>

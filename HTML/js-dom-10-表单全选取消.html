@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0 0;
+        padding: 0 0;
+    }
+
+    .tableHead {
+        background-color: rgb(108, 191, 224);
+    }
+
+    table {
+        margin: 200px auto;
+        border-spacing: 0;
+        border-bottom: 1px solid #999;
+        border-right: 1px solid #999;
+    }
+
+    table td {
+        width: 100px;
+        height: 50px;
+        border-top: 1px solid #999;
+        border-left: 1px solid #999;
+        text-align: center;
+    }
+
+    .tableHead td {
+        color: #fff;
+    }
+</style>
+
+<body>
+    <table>
+        <tr class="tableHead">
+            <td><input type="checkbox" class="checkAll"></td>
+            <td>good</td>
+            <td>price</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkOne"></td>
+            <td>apple</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkOne"></td>
+            <td>fish</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkOne"></td>
+            <td>ege</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="checkOne"></td>
+            <td>beef</td>
+            <td>333</td>
+        </tr>
+    </table>
+
+    <script>
+        // 获取元素
+        var checkAll = document.querySelector('.checkAll'); // 全选按钮
+        var checkOne = document.querySelectorAll('.checkOne'); // 单选按钮
+
+        // this.checked 可以获得复选框的选中状态，true为选中，false为未选中
+        checkAll.onclick = function() {
+            for (let i = 0; i < checkOne.length; i++) {
+                // 设置所有按钮状态和全选按钮状态一致
+                checkOne[i].checked = this.checked;
+            }
+        }
+
+        // 循环注册事件，所有单选复选框选中时，全选复选框也选中，反之，全选复选框取消选中
+        for (let i = 0; i < checkOne.length; i++) {
+            checkOne[i].onclick = function() {
+                let flag = true; // 控制全选复选框是否被选中
+                // 循环检测单选复选框状态
+                for (let j = 0; j < checkOne.length; j++) {
+                    if (!checkOne[j].checked) {
+                        flag = false; // 只要有一个单选复选框没有被选中
+                    }
+                }
+                checkAll.checked = flag; // 更改全选复选框状态
+            }
+        }
+    </script>
+</body>
+
+</html>

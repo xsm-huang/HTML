@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作元素</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button>你好</button>
+    <div>hello</div> -->
+
+    <!-- <p>hello world</p>
+    <script>
+        // var btn = document.querySelector('button');
+        // var div = document.querySelector('div');
+
+        // btn.onclick = function() {
+        //     div.innerText = '你好你好';
+        // }
+
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+    </script> -->
+
+
+    <button id="tz">太宰</button>
+    <button id="zy">中也</button>
+    <img id="myimg" src="img/01-太宰治.png" title="太宰" style="width: 200px;">
+    <script>
+        var tz = document.getElementById('tz');
+        var zy = document.getElementById('zy');
+        // var img = document.getElementById('myimg');
+        var img = document.querySelector('img');
+
+        tz.onclick = function() {
+            img.src = 'img/01-太宰治.png';
+            img.title = '太宰';
+        }
+        zy.onclick = function() {
+            img.src = 'img/06-中也1.jpg';
+            img.title = '中也';
+        }
+    </script>
+
+    <!-- <div></div>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function() {
+            this.style.backgroundColor = 'pink';
+            this.style.width = '250px';
+        }
+    </script> -->
+</body>
+
+</html>

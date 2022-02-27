@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排他思想</title>
+</head>
+
+<body>
+    <button class="btn">按钮1</button>
+    <button class="btn">按钮2</button>
+    <button class="btn">按钮3</button>
+    <button class="btn">按钮4</button>
+    <button class="btn">按钮5</button>
+
+    <script>
+        var btns = document.querySelectorAll('.btn');
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                for (let j = 0; j < btns.length; j++) {
+                    btns[j].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'pink';
+            }
+        }
+    </script>
+</body>
+
+</html>

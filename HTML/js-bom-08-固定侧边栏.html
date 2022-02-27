@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Normalize.css">
+    <style>
+        .w {
+            margin: 10px auto;
+            width: 70%;
+            height: 500px;
+        }
+
+        .header {
+            background-color: beige;
+        }
+
+        .banner {
+            background-color: blueviolet;
+        }
+
+        .main {
+            background-color: burlywood;
+        }
+
+        .slider-bar {
+            width: 30px;
+            height: 100px;
+            background-color: burlywood;
+            position: absolute;
+            right: 5px;
+            top: calc(50vh - 50px);
+        }
+
+        .goBack {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部</div>
+    <div class="banner w">banner</div>
+    <div class="main w">主体</div>
+
+    <script>
+        var slider_bar = document.querySelector('.slider-bar');
+        document.addEventListener('scroll', function(e) {
+            console.log(window.innerHeight / 2 - slider_bar.offsetHeight, window.pageYOffset);
+            if (window.pageYOffset >= (window.innerHeight - slider_bar.offsetHeight) / 2 - 100) {
+                slider_bar.style.position = 'fixed';
+                slider_bar.style.top = 100 + 'px';
+            } else {
+                slider_bar.style.position = 'absolute';
+                slider_bar.style.top = 100 + 'px'
+            }
+        })
+    </script>
+</body>
+
+</html>

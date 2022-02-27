@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改类名</title>
+</head>
+<style>
+    .unchecked {
+        background-color: aquamarine;
+        width: 100px;
+        height: 200px;
+    }
+
+    .checked {
+        background-color: bisque;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="unchecked">box</div>
+    <script>
+        var box = document.querySelector('div');
+        box.onclick = function() {
+            // this.className = 'checked';
+            this.className = 'unchecked checked';
+        }
+    </script>
+</body>
+
+</html>

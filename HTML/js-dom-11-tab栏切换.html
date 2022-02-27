@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0 0;
+            padding: 0 0;
+            color: #3c3c3c;
+        }
+
+        .box {
+            width: 800px;
+            height: 500px;
+            margin: 100px auto;
+        }
+
+        .top {
+            background-color: #e3e3e3;
+            height: 50px;
+            border: 1px solid #999;
+        }
+
+        .top li {
+            list-style: none;
+            float: left;
+            padding: 0 20px;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .top_checked {
+            background-color: brown;
+            color: #eee;
+        }
+
+        .detail div {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <ul>
+                <li class="top_checked">商品介绍</li>
+                <li>包装与规格</li>
+                <li>售后保障</li>
+                <li>评价</li>
+            </ul>
+        </div>
+        <div class="detail">
+            <div style="display: block;">商品介绍</div>
+            <div>包装与规格</div>
+            <div>售后保障</div>
+            <div>评价</div>
+        </div>
+    </div>
+
+    <script>
+        // 获取元素
+        var lis = document.querySelector('.top').querySelectorAll('li');
+        var details = document.querySelector('.detail').querySelectorAll('div');
+
+        // 循环注册点击事件
+        for (let i = 0; i < lis.length; i++) {
+            // 给每个 li 标签添加自定义属性 index
+            lis[i].setAttribute('index', i);
+            // 点击事件
+            lis[i].onclick = function() {
+                // 设置上方导航栏的点击样式
+                // （干掉所有）去除所有 li 标签的点击样式
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].className = '';
+                }
+                // （留下自己）给当前标签添加点击样式
+                this.className = 'top_checked';
+
+                // 设置下方信息栏的显示
+                // 获取当前标签的 index 属性的值
+                var index = this.getAttribute('index');
+                // （干掉所有）隐藏所有介绍信息标签
+                for (let j = 0; j < details.length; j++) {
+                    details[j].style.display = 'none';
+                }
+                // （留下自己）显示当前点击的 li 标签下的介绍信息标签
+                details[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>
