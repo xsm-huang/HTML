@@ -81,14 +81,25 @@
 
     <script>
         $(function () {
-            // 鼠标经过
-            $('.nav>li').mouseover(function () {
-                $(this).children('ul').show();
-            });
+            // // 鼠标经过
+            // $('.nav>li').mouseover(function () {
+            //     $(this).children('ul').show();
+            // });
 
-            // 鼠标离开
-            $('.nav>li').mouseout(function () {
-                $(this).children('ul').hide();
+            // // 鼠标离开
+            // $('.nav>li').mouseout(function () {
+            //     $(this).children('ul').hide();
+            // })
+
+            // 升级，鼠标经过离开有动画效果
+            // $('.nav>li').hover(function () {
+            //     $(this).children('ul').slideDown(200);
+            // }, function () {
+            //     $(this).children('ul').slideUp(200);
+            // })
+            // 升级二，只写一个函数
+            $('.nav>li').hover(function () {
+                $(this).children('ul').stop().slideToggle(200);
             })
         })
     </script>
