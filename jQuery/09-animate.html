@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <button>animate</button>
+    <div></div>
+
+    <script>
+        $(function () {
+            $("button").click(function () {
+                console.log("ddd");
+                $("div").animate({
+                    left: 200,
+                    top: 300,
+                    opacity: .4,
+                    width: 400
+                }, 1000)
+            })
+        })
+    </script>
+</body>
+
+</html>

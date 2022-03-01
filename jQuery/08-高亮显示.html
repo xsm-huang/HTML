@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        div {
+            margin: 20px auto;
+            width: 600px;
+            height: 400px;
+            background-color: #000;
+        }
+
+        div li {
+            box-sizing: border-box;
+            float: left;
+            width: 200px;
+            height: 200px;
+            padding: 3px;
+        }
+
+        div li img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><a href="#"><img src="images/01-太宰1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/02-太宰2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/01-太宰1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/02-太宰2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/01-太宰1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/02-太宰2.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            $("div li").hover(function () {
+                $(this).siblings().stop().fadeTo(400, 0.5);
+            }, function () {
+                $(this).siblings().stop().fadeTo(400, 1);
+            })
+        })
+    </script>
+</body>
+
+</html>
