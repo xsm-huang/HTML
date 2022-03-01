@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="" class="checkall"> 全选
+    <br>
+    <input type="checkbox" name="" id="" class="checkone"> 1
+    <br>
+    <input type="checkbox" name="" id="" class="checkone"> 2
+    <br>
+    <input type="checkbox" name="" id="" class="checkone"> 3
+    <br>
+    <input type="checkbox" name="" id="" class="checkall"> 全选
+
+    <script>
+        $(function () {
+            // 全选按钮
+            $(".checkall").change(function () {
+                $(".checkone, .checkall").prop("checked", $(this).prop("checked"))
+            })
+            // 小复选框
+            $(".checkone").change(function () {
+                if ($(".checkone:checked").length === $(".checkone").length) {
+                    $(".checkall").prop("checked", true);
+                } else {
+                    $(".checkall").prop("checked", false);
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>
