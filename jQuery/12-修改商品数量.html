@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .quantity-from {
+            margin: 10px;
+            width: 80px;
+            height: 24px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 3px;
+        }
+
+        .quantity-from a {
+            display: block;
+            float: left;
+            width: 20px;
+            height: 24px;
+        }
+
+        .itxt {
+            padding: 0;
+            margin: 2px 0;
+            float: left;
+            width: 40px;
+            height: 20px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="price">￥12.50</div>
+        <div class="quantity-from">
+            <a href="javascript:;" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="javascript:;" class="increment">+</a>
+        </div>
+        <div class="sum">￥12.50</div>
+    </div>
+    <div class="box">
+        <div class="price">￥2.10</div>
+        <div class="quantity-from">
+            <a href="javascript:;" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="javascript:;" class="increment">+</a>
+        </div>
+        <div class="sum">￥2.10</div>
+    </div>
+    <div class="box">
+        <div class="price">￥43.22</div>
+        <div class="quantity-from">
+            <a href="javascript:;" class="decrement">-</a>
+            <input type="text" class="itxt" value="1">
+            <a href="javascript:;" class="increment">+</a>
+        </div>
+        <div class="sum">￥43.22</div>
+    </div>
+
+    <script>
+        $(function () {
+            $(".increment").click(function () {
+                let n = $(this).siblings(".itxt").val();
+                n++;
+                $(this).siblings(".itxt").val(n);
+
+                let p = $(this).parent().siblings(".price").html();
+                p = p.slice(1);
+                p = p * 100 * n / 100;
+                $(this).parent().siblings(".sum").html("￥" + p.toFixed(2));
+
+            })
+            $(".decrement").click(function () {
+                let n = $(this).siblings(".itxt").val();
+
+                if (n == 1) return false;
+
+                n--;
+                $(this).siblings(".itxt").val(n);
+
+                let p = $(this).parent().siblings(".price").html();
+                p = p.slice(1);
+                p = p * 100 * n / 100;
+                $(this).parent().siblings(".sum").html("￥" + p.toFixed(2));
+            })
+
+            $(".itxt").change(function () {
+                let n = $(this).val();
+                let p = $(this).parent().siblings(".price").html();
+                p = p.slice(1);
+                p = p * 100 * n / 100;
+                $(this).parent().siblings(".sum").html("￥" + p.toFixed(2));
+            })
+        })
+    </script>
+</body>
+
+</html>
