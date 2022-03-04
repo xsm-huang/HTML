@@ -26,7 +26,7 @@ function resolveCss(htmlStr) {
     // 将提取出来的样式字符串进行字符串替换
     const newCss = r[0].replace('<style>', '').replace('</style>', '');
     // 将提取的 CSS 文件写入样式文件中
-    fs.writeFile(path.join(__dirname, './clock/index.css'), newCss, function (err) {
+    fs.writeFile(path.join(__dirname, '../clock/index.css'), newCss, function (err) {
         if (err) {
             return console.log('CSS file write error!' + err.message);
         }
@@ -40,7 +40,7 @@ function resolveJS(htmlStr) {
     // 将提取出来的样式字符串进行字符串替换
     const newJS = r[0].replace('<script>', '').replace('</script>', '');
     // 将提取的 JS 文件写入样式文件中
-    fs.writeFile(path.join(__dirname, './clock/index.js'), newJS, function (err) {
+    fs.writeFile(path.join(__dirname, '../clock/index.js'), newJS, function (err) {
         if (err) {
             return console.log('JS file write error!' + err.message);
         }
@@ -52,7 +52,7 @@ function resolveHTML(htmlStr) {
     // 将内嵌的 <style> 和 <script> 标签替换为外联的 <link> 和 <script> 标签
     const newHTML = htmlStr.replace(regStyle, '<link rel="stylesheet" href="./index.css" /> \n <script src="./index.js"></script>').replace(regScript, '');
     // 将提取的 HTML 文件写入样式文件中
-    fs.writeFile(path.join(__dirname, './clock/index.html'), newHTML, function (err) {
+    fs.writeFile(path.join(__dirname, '../clock/index.html'), newHTML, function (err) {
         if (err) {
             return console.log('HTML file write error!' + err.message);
         }
