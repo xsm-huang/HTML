@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        .clock {
+            /* width: 320px; */
+            height: 110px;
+            margin: 100px auto;
+
+        }
+
+        .clock div {
+            float: left;
+            margin: 5px 0 5px 5px;
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            border: 5px solid rgb(14, 141, 99);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        span {
+            line-height: 100px;
+            font-size: 36px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div>
+            <span class="hour"></span>
+        </div>
+        <div>
+            <span class="minute"></span>
+        </div>
+        <div>
+            <span class="second"></span>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            var hour = document.querySelector('.hour');
+            var minute = document.querySelector('.minute');
+            var second = document.querySelector('.second');
+
+            // 先调用一次函数，防止第一次刷新时页面空白
+            countDown();
+            // 开启定时器
+            setInterval(countDown, 1000);
+
+            // 倒计时函数
+            function countDown() {
+                var times = new Date();
+
+                h = times.getHours();
+                h = h < 10 ? '0' + h : h;
+                hour.innerHTML = h; // 写入标签
+
+                m = times.getMinutes();
+                m = m < 10 ? '0' + m : m;
+                minute.innerHTML = m; // 写入标签
+
+                s = times.getSeconds();
+                s = s < 10 ? '0' + s : s;
+                second.innerHTML = s; // 写入标签
+            }
+        })
+    </script>
+</body>
+
+</html>
