@@ -1,4 +1,4 @@
 *.zip
 *.rar
 /LeetCode/
-/Node/node_modules/
+*node_modules
