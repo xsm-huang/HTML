@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="send">send</button>
+
+    <script>
+        const btnSend = document.querySelector('.send');
+
+        let xhr = null;
+        // 标识符，表示是否正在发送请求
+        let isSending = false;
+
+        /**
+         * 根据 isSending 判断是否已经发送请求，如果发送就取消，再发送新的请求 
+         */
+        // btnSend.addEventListener('click', () => {
+        //     // 判断标识符变量，如果已经发送请求，则取消该请求创建新的
+        //     if (isSending) xhr.abort();
+
+        //     // 创建对象
+        //     xhr = new XMLHttpRequest();
+        //     // 修改标识符
+        //     isSending = true;
+        //     // 初始化，设置请求方法和 URL
+        //     xhr.open('GET', 'http://127.0.0.1:8080/delay');
+        //     // 发送
+        //     xhr.send();
+        //     xhr.onreadystatechange = function () {
+        //         if (xhr.readyState === 4) {
+        //             isSending = false;
+        //         }
+        //     }
+        // })
+
+        /**
+         * 方法二：使用节流阀，根据 isSending 判断是否发送，如果已经发送就不再发送
+         */
+        btnSend.addEventListener('click', () => {
+            if (!isSending) {
+                // 创建对象
+                xhr = new XMLHttpRequest();
+                // 修改标识符
+                isSending = true;
+                // 初始化，设置请求方法和 URL
+                xhr.open('GET', 'http://127.0.0.1:8080/delay');
+                // 发送
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        isSending = false;
+                    }
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
