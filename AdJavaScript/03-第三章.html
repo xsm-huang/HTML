@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>第三章</title>
+    </head>
+    <body>
+        <script>
+            // for (var i = 0; i < 5; i++) {
+            //     let a = i;
+            //     console.log(a);
+            //     setTimeout(() => console.log(i), 0);
+            // }
+
+            // console.log("===================================");
+            // let a = null;
+            // console.log(typeof a); // "Object"
+
+            // console.log(undefined == null); // true
+            // console.log(undefined === null); // false
+
+            // console.log("===================================");
+            // let octalNum1 = 070; // 56
+            // console.log(11 + octalNum1); // 67
+            // console.log(octalNum1 + octalNum1); // 112
+
+            // console.log("===================================");
+            // console.log(0.1 + 0.2);
+
+            // console.log("===================================");
+            // let a = 6;
+            // let b = 9;
+            // function simpleTag(
+            //     strings,
+            //     aValExpression,
+            //     bValExpression,
+            //     sumExpression
+            // ) {
+            //     console.log(strings);
+            //     console.log(aValExpression);
+            //     console.log(bValExpression);
+            //     console.log(sumExpression);
+            //     return "foobar";
+            // }
+            // let untaggedResult = `${a} + ${b} = ${a + b}`;
+            // let taggedResult = simpleTag`${a} + ${b} = ${a + b}`;
+            // // ["", " + ", " = ", ""]
+            // // 6
+            // // 9
+            // // 15
+            // console.log(untaggedResult); // "6 + 9 = 15"
+            // console.log(taggedResult); // "foobar"
+
+            // console.log("===================================符号");
+            // let s1 = Symbol("foo");
+            // let s2 = Symbol("bar");
+            // let o = {
+            //     [s1]: "foo val",
+            //     [Symbol("qux")]: "qux val",
+            //     s1: "s1 val",
+            //     baz: "baz val",
+            // };
+
+            // console.log(o); // {s1: 's1 val', baz: 'baz val', Symbol(foo): 'foo val', Symbol(qux): 'qux val'}
+            // console.log(Object.getOwnPropertySymbols(o)); // [Symbol(foo), Symbol(qux)]
+            // console.log(Object.getOwnPropertyNames(o)); // ['s1', 'baz']
+            // console.log(Object.getOwnPropertyDescriptors(o)); // {s1: {…}, baz: {…}, Symbol(foo): {…}, Symbol(qux): {…}}
+            // console.log(Reflect.ownKeys(o)); // ['s1', 'baz', Symbol(foo), Symbol(qux)]
+
+            // console.log(s1, s2); // Symbol(foo) Symbol(bar)
+
+            // let quxSymbol = Object.getOwnPropertySymbols(o).find((symbol) =>
+            //     symbol.toString().match(/qux/)
+            // );
+            // console.log(quxSymbol); // Symbol(qux)
+
+            // console.log("===================================对象");
+            // let obj = new Object();
+            // obj.a = 0;
+            // obj.b = 9;
+            // console.log(obj.toString()); // [object Object]
+            // console.log(obj.valueOf()); // {a: 0, b: 9}
+
+            // function Fn(name, age) {
+            //     this.name = name;
+            //     this.age = age;
+            // }
+            // let fn = new Fn("sxm", "18");
+            // console.log(fn.toString()); // [object Object]
+            // console.log(fn.valueOf()); // Fn {name: 'sxm', age: '18'}
+
+            // let o = {
+            //     a: 10,
+            // };
+            // console.log(o); // {a: 10}
+            // console.log(o.valueOf()); // {a: 10}
+            // o.valueOf = function () {
+            //     return 3;
+            // };
+            // console.log(o.valueOf()); // 3
+            // console.log(--o); // -2
+
+            // console.log("===================================位运算");
+            // let a = -25;
+            // let b = 3;
+            // console.log(a & b);
+            // console.log(a | b);
+            console.log("===================================语句");
+            // console.log(window);
+            // for (const propName in window) {
+            //     console.log(propName);
+            // }
+
+            // for (const el of [2, 3, 4, 5]) {
+            //     console.log(el);
+            // }
+
+            let num = 0;
+            for (let i = 1; i < 10; i++) {
+                num++;
+            }
+            console.log(num); // 9
+
+            num = 0;
+            for (let i = 1; i < 10; i++) {
+                if (i % 5 == 0) {
+                    break;
+                }
+                num++;
+            }
+            console.log(num); // 4
+
+            num = 0;
+            for (let i = 1; i < 10; i++) {
+                if (i % 5 == 0) {
+                    continue;
+                }
+                num++;
+            }
+            console.log(num); // 8
+
+            num = 0;
+            for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    num++;
+                }
+            }
+            console.log(num); // 100
+
+            num = 0;
+            outermost1: for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    if (i == 5 && j == 5) {
+                        break outermost1;
+                    }
+                    num++;
+                }
+            }
+            console.log(num); // 55
+
+            num = 0;
+            outermost2: for (let i = 0; i < 10; i++) {
+                for (let j = 0; j < 10; j++) {
+                    if (i == 5 && j == 5) {
+                        continue outermost2;
+                    }
+                    num++;
+                }
+            }
+            console.log(num); // 95
+        </script>
+    </body>
+</html>

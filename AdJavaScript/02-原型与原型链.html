@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // function Fn() {
+            //   this.test1 = function () {
+            //     console.log("test1()");
+            //   };
+            // }
+
+            // Fn.prototype.test2 = function () {
+            //   console.log("test2()");
+            // };
+
+            // var fn = new Fn();
+
+            // fn.test1(); // test1()
+            // fn.test2(); // test2()
+            // console.log(fn.toString()); // [object Object]
+            // console.log(fn.test3); // undefined
+            // // fn.test3(); // 报错
+
+            // console.log("==============================");
+            // console.log(Fn.prototype instanceof Object); //true
+            // console.log(Object.prototype instanceof Object); // false
+            // console.log(Function instanceof Object); // true
+
+            // console.log("==============================");
+            // function Fn() {}
+            // Fn.prototype.a = "xxx";
+            // var fn1 = new Fn();
+            // console.log(fn1.a, fn1); //xxx Fn{}
+
+            // var fn2 = new Fn();
+            // fn2.a = "yyy";
+            // console.log(fn1.a, fn2.a, fn2); //xxx yyy  Fn{a: "yyy"}
+
+            // function Person(name, age) {
+            //     this.name = name;
+            //     this.age = age;
+            // }
+            // Person.prototype.setName = function (name) {
+            //     this.name = name;
+            // };
+            // var p1 = new Person("Tom", 12);
+            // p1.setName("Bob");
+            // console.log(p1); //Person {name: "Bob", age: 12}
+
+            // var p2 = new Person("Jack", 12);
+            // p2.setName("Cat");
+            // console.log(p2); //Person {name: "Cat", age: 12}
+            // console.log(p1.__proto__ === p2.__proto__); // true (所以方法一般定义在原型中)
+
+            console.log("==============================");
+            function Fn() {}
+            console.log(Fn.prototype);
+            const fn1 = new Fn();
+            console.log(fn1.__proto__);
+            // const fn2 = new fn1();
+            // console.log(fn2.__proto__);
+        </script>
+    </body>
+</html>

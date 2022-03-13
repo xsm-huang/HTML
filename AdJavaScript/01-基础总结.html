@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>基础总结</title>
+    </head>
+
+    <body>
+        <script>
+            console.log("=====================================");
+            var b1 = {
+                b2: [1, "abc", console.log],
+                //可以简化成 b3:()=>()=> 'xsm'  --> 高阶函数相关知识
+                b3: function () {
+                    return () => {
+                        return "xsm";
+                    };
+                },
+            };
+            /* 使用instanceof进行对象判断 */
+            console.log(b1 instanceof Object, b1 instanceof Array); // true  false
+            console.log(b1.b2 instanceof Array, b1.b2 instanceof Object); // true true
+            console.log(b1.b3 instanceof Function, b1.b3 instanceof Object); // true true
+
+            /* 使用typeof进行对象中某属性的判断 */
+            console.log(typeof b1.b2, typeof null); // 'object' 'object'
+            console.log(typeof b1.b3 === "function"); // true
+            console.log(typeof b1.b2[2] === "function"); //true
+
+            /* 调用对象与数组中某函数示例 */
+            b1.b2[2]("调用 console.log 打印 xsm"); //调用 console.log 打印 xsm
+            console.log(b1.b3()()); // xsm
+
+            console.log("=====================================");
+            let a = { age: 12 };
+            /* 将 a 指向的地址值赋值给 b */
+            let b = a;
+            /* 
+            重新创建了一个内存并让 a 指向它
+            a 指向 { name: 'hong' } 
+            b 指向 { age: 12 }
+            */
+            a = { name: "hong" };
+            /* 
+            此时 a b 指向不同，修改互不影响
+            a = { name: 'hong' } 
+            b = { age: 14 }
+            */
+            b.age = 14;
+            console.log(b.age, a.name, a.age); // 14 hong undefined
+            /* 
+            将 a 指向的地址赋值给形参 obj, a 和 obj 指向同一个对象
+            重新创建了一个内存并让 obj 指向它
+            此时
+            a = { name: 'hong' }
+            obj = { age: 15 }
+            */
+            const fn2 = (obj) => (obj = { age: 15 });
+            fn2(a);
+
+            console.log(a.age); //undefined
+
+            console.log("=====================================");
+            var obj = {};
+            //此处不能使用箭头函数,因为箭头函数会改变this指向
+            function test2() {
+                this.xxx = "xsm";
+            }
+            // obj.test2()  不能直接, 根本就没有
+            /* 可以让一个函数成为指定任意对象的方法进行调用 */
+            test2.call(obj); // 类似 obj.test2()
+            console.log(obj.xxx); // 'xsm'
+            (function () {
+                //不会污染外部(全局)命名空间-->举例
+                let a = 1;
+                function test() {
+                    console.log(++a);
+                } //声明一个局部函数test
+                window.$ = function () {
+                    // 向外暴露一个全局函数
+                    return { test1: test };
+                };
+            })();
+            // test()  //test is not defined
+            $().test1(); // 1. $是一个函数 2. $执行后返回的是一个对象
+        </script>
+    </body>
+</html>
