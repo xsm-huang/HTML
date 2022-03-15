@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            console.log("===============================生成器");
+            function* fnSC() {
+                return "foo";
+            }
+            console.log(fnSC);
+            console.log(fnSC()); // fnSC {<suspended>}
+            console.log(fnSC.next); // undefined
+            console.log(fnSC().next()); // {value: 'foo', done: true}
+
+            const sc = fnSC();
+            console.log(sc); // fnSC {<suspended>}
+            // console.log(sc());
+            console.log(sc.next); // ƒ next() { [native code] }
+            console.log(sc.next()); // {value: 'foo', done: true}
+        </script>
+    </body>
+</html>
