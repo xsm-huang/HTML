@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <button v-on:click="showInfo1">点击提示信息</button>
+            <button @click="showInfo2(66, $event)">点击提示信息 (传参 66)</button>
+
+            <!-- 键盘事件 -->
+            <input type="text" placeholder="按下回车提示输入" @keydown.enter="demo1" />
+        </div>
+        <script>
+            Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
+            Vue.config.keyCodes.huiche = 13;
+            const vm = new Vue({
+                el: "#root",
+                methods: {
+                    showInfo1() {
+                        alert("hello");
+                    },
+                    showInfo2(num) {
+                        alert(`hello num = ${num}`);
+                    },
+
+                    demo1(e) {
+                        console.log(e.key, e.keyCode);
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
