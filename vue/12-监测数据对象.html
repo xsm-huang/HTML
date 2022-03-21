@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>监测数据对象</title>
+    </head>
+    <body>
+        <script>
+            let data = {
+                a: 1,
+            };
+
+            const obs = new Observer(data);
+
+            let vm = {};
+            vm._data = obs;
+
+            function Observer(obj) {
+                const keys = Object.keys(obj);
+
+                // 遍历
+                keys.forEach((k) => {
+                    // 给 this 指向的 Observer 实例添加属性 (使用 getter 和 setter 方法)
+                    Object.defineProperty(this, k, {
+                        get() {
+                            return obj[k];
+                        },
+                        set(val) {
+                            obj[k] = val;
+                        },
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>

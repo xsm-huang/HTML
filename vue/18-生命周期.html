@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h2 :style="{opacity}">透明度</h2>
+        </div>
+        <script>
+            Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
+            const vm = new Vue({
+                el: '#root',
+                data: {
+                    opacity: 1,
+                },
+                methods: {},
+                // Vue 完成模板的解析, 并把真实的 DOM 放入页面后 (挂载完毕) 调用 mounted
+                mounted() {
+                    let myopa = 0.01;
+                    setInterval(() => {
+                        this.opacity -= myopa;
+                        if (this.opacity <= 0 || this.opacity >= 1) myopa = -myopa;
+                        // console.log(this.opacity);
+                    }, 16);
+                },
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <!-- 使用 v-show 做条件渲染 -->
+            <h2 v-show="flase">使用 v-show 做条件渲染</h2>
+            <h2 v-show="1 === 1">使用 v-show 做条件渲染</h2>
+
+            <br /><br /><br />
+            <!-- 使用 v-if 做条件渲染 -->
+            <h2 v-if="true">使用 v-if 做条件渲染</h2>
+            <h2 v-if="1 === 3">使用 v-if 做条件渲染</h2>
+
+            <br /><br /><br />
+            <!-- v-else-if 和 v-else -->
+            <h2>v-else-if 和 v-else, n 的值为{{n}}</h2>
+            <button @click="n++">点击切换 n</button>
+            <div v-if="n === 1">n = 1</div>
+            <div v-else-if="n === 2">n = 2</div>
+            <div v-else-if="n === 3">n = 3</div>
+            <div v-else>n !== 1\2\3</div>
+
+            <br /><br /><br />
+            <!-- 需要同时显示隐藏多个节点 -->
+            <h2>需要同时显示隐藏多个节点</h2>
+            <div v-if="n === 1">同时显示 \ 隐藏 1</div>
+            <div v-if="n === 1">同时显示 \ 隐藏 1</div>
+            <div v-if="n === 1">同时显示 \ 隐藏 1</div>
+
+            <br /><br /><br />
+
+            <template v-if="n===2">
+                <div>同时显示 \ 隐藏 2</div>
+                <div>同时显示 \ 隐藏 2</div>
+                <div>同时显示 \ 隐藏 2</div>
+            </template>
+        </div>
+        <script>
+            Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
+            const vm = new Vue({
+                el: "#root",
+                data: {
+                    name: "xsm",
+                    n: 0,
+                },
+            });
+        </script>
+    </body>
+</html>

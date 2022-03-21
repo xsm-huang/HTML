@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <!-- 点击按钮提交表单事件, prevent 修饰符阻止默认行为: 提交表单刷新页面 -->
+            <form @submit.prevent="demo">
+                <label for="zh">账号: <input type="text" id="zh" v-model="uerInfo.account" /></label>
+                <br /><br />
+
+                <label for="mm">密码: <input type="password" id="mm" v-model="uerInfo.password" /></label>
+                <br /><br />
+
+                <!-- 
+                    type="number" 控制表单只能输入数字
+                    v-model.number 输入字符串为有效数字 (不使用修饰符则传给 uerInfo.age 的数据最终为字符串)
+                 -->
+                <label for="nl">年龄: <input type="number" id="nl" v-model.number="uerInfo.age" /></label>
+                <br /><br />
+
+                性别:
+                <!-- v-model 收集 value 值, 需要手动给标签配置 value 值 -->
+                <label for="nan">男<input type="radio" name="sex" id="nan" value="male" v-model="uerInfo.sex" /></label>
+                <label for="nv">女<input type="radio" name="sex" id="nv" value="female" v-model="uerInfo.sex" /></label>
+                <br /><br />
+
+                爱好:
+                <!-- 配置 value 值, 使 v-model 收集 value 值, uerInfo.hobby 的数据类型需为数组-->
+                <label for="cy">抽烟<input type="checkbox" name="hobby" id="cy" v-model="uerInfo.hobby" value="smoke" /></label>
+                <label for="hj">喝酒<input type="checkbox" name="hobby" id="hj" v-model="uerInfo.hobby" value="drink" /></label>
+                <label for="dj">打架<input type="checkbox" name="hobby" id="dj" v-model="uerInfo.hobby" value="play" /></label>
+                <br /><br />
+
+                所属校区:
+                <select v-model="uerInfo.city">
+                    <option value="">请选择校区</option>
+                    <option value="beijing">北京</option>
+                    <option value="shanghai">上海</option>
+                    <option value="shenzhen">深圳</option>
+                    <option value="wuhan">武汉</option>
+                </select>
+                <br /><br />
+
+                其他信息:<br />
+                <textarea cols="30" rows="10" v-model="uerInfo.others"></textarea>
+                <br /><br />
+
+                <input type="checkbox" v-model="uerInfo.agree" /> 阅读并接受<a href="http://baid.com">《用户协议》</a> <br /><br />
+
+                <button>提交</button>
+            </form>
+        </div>
+        <script>
+            Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
+            const vm = new Vue({
+                el: '#root',
+                data: {
+                    uerInfo: {
+                        account: '',
+                        password: '',
+                        age: 18,
+                        sex: 'male',
+                        // 数据类型需要为数组, 否则 v-model 在复选框收集的数据为 checked 的值
+                        hobby: [],
+                        city: '',
+                        others: '',
+                    },
+                },
+                methods: {
+                    // 提交表单数据, 将表单数据打印到控制台
+                    demo() {
+                        console.log(JSON.stringify(this.uerInfo));
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
