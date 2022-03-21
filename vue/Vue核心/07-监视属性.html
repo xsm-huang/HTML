@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>监视属性</title>
-        <script src="js/vue.js"></script>
+        <script src="../js/vue.js"></script>
     </head>
     <body>
         <div id="root">
@@ -22,7 +22,7 @@
         <script>
             Vue.config.productionTip = false;
             const vm = new Vue({
-                el: "#root",
+                el: '#root',
                 data: {
                     isHot: true,
                     numbers: {
@@ -32,7 +32,7 @@
                 },
                 computed: {
                     weather() {
-                        return this.isHot ? "炎热" : "寒冷";
+                        return this.isHot ? '炎热' : '寒冷';
                     },
                 },
                 methods: {
@@ -45,13 +45,13 @@
                     isHot: {
                         immediate: true,
                         handler(newValue, oldValue) {
-                            console.log("isHot 被修改了", newValue, oldValue);
+                            console.log('isHot 被修改了', newValue, oldValue);
                         },
                     },
                     weather: {
                         immediate: true,
                         handler(newValue, oldValue) {
-                            console.log("weather 被修改了", newValue, oldValue);
+                            console.log('weather 被修改了', newValue, oldValue);
                         },
                     },
 
@@ -61,14 +61,14 @@
                     //         console.log("numbers.a 被修改了", newValue, oldValue);
                     //     },
                     // },
-                    "numbers.a"(newValue, oldValue) {
-                        console.log("numbers.a 被修改了", newValue, oldValue);
+                    'numbers.a'(newValue, oldValue) {
+                        console.log('numbers.a 被修改了', newValue, oldValue);
                     },
                     // 监测多级结构中所有属性的变化
                     numbers: {
                         deep: true,
                         handler() {
-                            console.log("numbers 改变了");
+                            console.log('numbers 改变了');
                         },
                     },
                 },

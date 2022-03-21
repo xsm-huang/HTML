@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="js/vue.js"></script>
+        <script src="../js/vue.js"></script>
     </head>
     <body>
         <div id="root">
@@ -19,10 +19,10 @@
             Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示
             Vue.config.keyCodes.huiche = 13;
             const vm = new Vue({
-                el: "#root",
+                el: '#root',
                 methods: {
                     showInfo1() {
-                        alert("hello");
+                        alert('hello');
                     },
                     showInfo2(num) {
                         alert(`hello num = ${num}`);

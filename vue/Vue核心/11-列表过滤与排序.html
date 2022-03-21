@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>列表过滤 + 排序</title>
-        <script src="js/vue.js"></script>
+        <script src="../js/vue.js"></script>
     </head>
     <body>
         <div id="root">
@@ -49,14 +49,14 @@
 
             // 使用计算属性
             const vm = new Vue({
-                el: "#root",
+                el: '#root',
                 data: {
-                    keyWord: "",
+                    keyWord: '',
                     persons: [
-                        { id: "001", name: "马冬梅", age: 13, sex: "女" },
-                        { id: "002", name: "周冬雨", age: 20, sex: "女" },
-                        { id: "003", name: "周杰伦", age: 19, sex: "男" },
-                        { id: "004", name: "温兆伦", age: 22, sex: "男" },
+                        { id: '001', name: '马冬梅', age: 13, sex: '女' },
+                        { id: '002', name: '周冬雨', age: 20, sex: '女' },
+                        { id: '003', name: '周杰伦', age: 19, sex: '男' },
+                        { id: '004', name: '温兆伦', age: 22, sex: '男' },
                     ],
                     sortType: 0,
                 },

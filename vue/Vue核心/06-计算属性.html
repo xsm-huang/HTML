@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>计算属性</title>
-        <script src="js/vue.js"></script>
+        <script src="../js/vue.js"></script>
     </head>
     <body>
         <!-- 插值语法 -->
@@ -38,10 +38,10 @@
         <script>
             Vue.config.productionTip = false;
             const vm = new Vue({
-                el: "#root",
+                el: '#root',
                 data: {
-                    firstName: "张",
-                    lastName: "三",
+                    firstName: '张',
+                    lastName: '三',
                 },
                 // methods: {
                 //     fullName() {
@@ -52,11 +52,11 @@
                     fullName: {
                         // 当读取 fullName 时,get就会被调用, 且返回值未 fullName 的值
                         get() {
-                            return this.firstName.slice(0, 3) + "-" + this.lastName;
+                            return this.firstName.slice(0, 3) + '-' + this.lastName;
                         },
 
                         set(value) {
-                            const arr = value.split("-");
+                            const arr = value.split('-');
                             this.firstName = arr[0];
                             this.lastName = arr[1];
                         },

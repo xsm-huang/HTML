@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <!-- 引入 vue -->
-        <script src="js/vue.js"></script>
+        <script src="../js/vue.js"></script>
     </head>
 
     <body>
@@ -17,11 +17,11 @@
             Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示
 
             // 创建 Vue 实例
-            const vm = new Vue({
-                el: "#root", // el 用于指定当前 Vue 实例为哪个容器, 值通常为 css 选择器字符串
+            new Vue({
+                el: '#root', // el 用于指定当前 Vue 实例为哪个容器, 值通常为 css 选择器字符串
                 // data 中用于存储数据, 数据供 el 所指定的容器去使用
                 data: {
-                    name: "xsm",
+                    name: 'xsm',
                 },
             });
         </script>

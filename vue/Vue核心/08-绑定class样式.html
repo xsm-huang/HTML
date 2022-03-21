@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="js/vue.js"></script>
+        <script src="../js/vue.js"></script>
         <style>
             * {
                 margin: 10px;
@@ -50,33 +50,33 @@
         <script>
             Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
             const vm = new Vue({
-                el: "#root",
+                el: '#root',
                 data: {
-                    name: "心情",
-                    mood: "normal",
-                    classArr: ["cl1", "cl2", "cl3"],
+                    name: '心情',
+                    mood: 'normal',
+                    classArr: ['cl1', 'cl2', 'cl3'],
                     classObj: {
                         cl1: true,
                         cl2: true,
                     },
 
                     styleObj: {
-                        backgroundColor: "red",
+                        backgroundColor: 'red',
                     },
                     styleArr: [
                         {
-                            fontSize: "40px",
-                            color: "green",
+                            fontSize: '40px',
+                            color: 'green',
                         },
                         {
-                            borderRadius: "20px",
+                            borderRadius: '20px',
                         },
                     ],
                 },
                 methods: {
                     changeMood() {
-                        console.log("ddd");
-                        let myMood = ["happy", "sad", "normal"];
+                        console.log('ddd');
+                        let myMood = ['happy', 'sad', 'normal'];
                         this.mood = myMood[Math.floor(Math.random() * 3)];
                     },
                 },
