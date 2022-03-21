@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="../js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h3>{{schoolName}}</h3>
+            <h3>{{address}}</h3>
+
+            <hr />
+
+            <h3>{{name}}</h3>
+            <h3>{{age}}</h3>
+        </div>
+        <script>
+            Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
+            const school = Vue.extend({
+                data() {
+                    return {
+                        schoolName: '华师',
+                        address: '南海',
+                    };
+                },
+            });
+
+            const student = Vue.extend({
+                data() {
+                    return {
+                        name: 'xsm',
+                        age: '20',
+                    };
+                },
+            });
+
+            new Vue({
+                el: '#root',
+                data: {},
+            });
+        </script>
+    </body>
+</html>
