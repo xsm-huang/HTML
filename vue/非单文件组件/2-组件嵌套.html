@@ -9,38 +9,17 @@
     </head>
     <body>
         <div id="root">
-            <hello></hello>
-            <school></school>
-            <hr />
-            <student></student>
-        </div>
-
-        <div id="root2">
-            <hello></hello>
+            <app></app>
         </div>
         <script>
             Vue.config.productionTip = false; // 阻止 vue 在启动是生成生产提示
-            // 创建 school 组件
-            const school = Vue.extend({
-                template: `
-                <div>
-                    <h3>学校名称: {{schoolName}}</h3>
-                    <h3>学校地址: {{address}}</h3>    
-                </div>
-                `,
-                data() {
-                    return {
-                        schoolName: '华师',
-                        address: '南海',
-                    };
-                },
-            });
+
             // 创建 student 组件
             const student = Vue.extend({
                 template: `
                 <div>
                     <h3>学生名称: {{name}}</h3>
-                    <h3>学生年龄: {{age}}</h3>  
+                    <h3>学生年龄: {{age}}</h3> 
                 </div>
                 `,
                 data() {
@@ -50,6 +29,27 @@
                     };
                 },
             });
+
+            // 创建 school 组件
+            const school = Vue.extend({
+                template: `
+                <div>
+                    <h2>学校名称: {{schoolName}}</h2>
+                    <h2>学校地址: {{address}}</h2>  
+                    <student></student>   
+                </div>
+                `,
+                data() {
+                    return {
+                        schoolName: '华师',
+                        address: '南海',
+                    };
+                },
+                components: {
+                    student,
+                },
+            });
+
             // 创建 hello 组件
             const hello = Vue.extend({
                 template: `
@@ -59,20 +59,26 @@
                 `,
             });
 
-            // 全局注册组件
-            Vue.component('hello', hello);
-
+            // 创建 app 组件
+            const app = Vue.extend({
+                template: `
+                <div>
+                    <hello></hello>
+                    <school></school>    
+                </div>
+                `,
+                components: {
+                    hello,
+                    school,
+                },
+            });
             new Vue({
+                template: `<app></app>`,
                 el: '#root',
                 // 注册组件 (局部注册)
                 components: {
-                    school: school,
-                    student,
+                    app,
                 },
-            });
-
-            new Vue({
-                el: '#root2',
             });
         </script>
     </body>
