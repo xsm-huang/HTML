@@ -1,7 +1,8 @@
 <template>
     <div>
-        <MySchool></MySchool>
-        <MyStudent></MyStudent>
+        <MySchool />
+        <MyStudent />
+        <hr />
     </div>
 </template>
 
@@ -12,10 +13,7 @@ import MyStudent from './components/MyStudent.vue';
 
 export default {
     name: 'App',
-    components: {
-        MySchool,
-        MyStudent,
-    },
+    components: { MySchool, MyStudent },
 };
 </script>
 
