@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>name: {{ name }}</h2>
+        <h2 @click="showName">name: {{ name }}</h2>
         <h2>sex: {{ sex }}</h2>
     </div>
 </template>
@@ -14,6 +14,9 @@ export default {
             sex: 'woman',
             x: 666,
         };
+    },
+    mounted() {
+        console.log('hello!!!');
     },
 };
 </script>

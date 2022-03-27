@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// import { mixin1 } from '../mixin';
 export default {
     name: 'MySchool',
     data() {
@@ -14,5 +15,6 @@ export default {
             address: '南海',
         };
     },
+    // mixins: [mixin1],
 };
 </script>
