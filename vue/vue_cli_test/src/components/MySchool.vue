@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2 @click="showName">schoolName: {{ name }}</h2>
+    <div class="demo">
+        <h2>schoolName: {{ name }}</h2>
         <h2>address: {{ address }}</h2>
     </div>
 </template>
@@ -16,3 +16,9 @@ export default {
     },
 };
 </script>
+
+<style>
+.demo {
+    background-color: aquamarine;
+}
+</style>

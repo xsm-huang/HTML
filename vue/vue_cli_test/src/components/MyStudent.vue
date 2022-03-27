@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>name: {{ name }}</h2>
+    <div class="demo">
+        <h2 class="a">name: {{ name }}</h2>
         <h2>sex: {{ sex }}</h2>
     </div>
 </template>
@@ -17,3 +17,12 @@ export default {
     },
 };
 </script>
+
+<style lang="less" scoped>
+.demo {
+    background-color: pink;
+    .a {
+        color: aquamarine;
+    }
+}
+</style>
