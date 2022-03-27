@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>第十章</title>
+    </head>
+    <body>
+        <script>
+            console.log('===============================函数声明');
+            function fn1() {}
+            console.log(typeof fn1); // function
+            console.log(fn1); // ƒ fn1() {}
+
+            let fn2 = function () {};
+            console.log(typeof fn2); // function
+            console.log(fn2); // ƒ () {}
+
+            let fn3 = () => {};
+            console.log(typeof fn3); // function
+            console.log(fn3); // () => {}
+
+            let sum = new Function();
+            console.log(typeof sum); // function
+            console.log(sum); // ƒ anonymous() {}
+        </script>
+    </body>
+</html>
