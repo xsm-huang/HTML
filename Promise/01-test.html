@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Promise</h1>
+        <button>点击抽奖</button>
+
+        <script>
+            function rand(n, m) {
+                return Math.floor(Math.random() * (m - n + 1)) + n;
+            }
+            const btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                /* // 定时器
+                setTimeout(() => {
+                    let n = rand(1, 100);
+                    if (n <= 30) {
+                        console.log('你中奖了');
+                    } else {
+                        console.log('你没中奖');
+                    }
+                }, 1000); */
+
+                /*
+                    promise 形式实现
+                    resolve 解决 函数类型数据
+                    reject 拒绝 函数类型数据
+                */
+                const p = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        let n = rand(1, 100);
+                        if (n <= 30) {
+                            resolve(n); // 将 promise 的状态设置为成功
+                        } else {
+                            reject(n); // 将 promise 的状态设置为失败
+                        }
+                    }, 1000);
+                });
+
+                /* 
+                调用 then 函数
+                value 值
+                reason 理由
+                */
+                p.then(
+                    // 成功的回调
+                    (value) => {
+                        console.log('你中奖了', value);
+                    },
+                    // 失败的回调
+                    (reason) => {
+                        console.log('你没中奖', reason);
+                    }
+                );
+            });
+        </script>
+    </body>
+</html>
