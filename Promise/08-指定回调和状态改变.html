@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>08-指定回调和状态改变</title>
+    </head>
+    <body>
+        <script>
+            let p = new Promise((resolve, reject) => {
+                //异步写法,这样写会先指定回调,再改变状态
+                setTimeout(() => {
+                    console.log('异步写法1');
+                    resolve('OK');
+                    console.log('异步写法2');
+                }, 1000);
+
+                //这是同步写法,这样写会先改变状态,再指定回调
+                // console.log('同步写法1');
+                // resolve('OK');
+                // console.log('同步写法2');
+            });
+            p.then(
+                (value) => {
+                    console.log(value);
+                },
+                (reason) => {}
+            );
+            /**
+             * 输出结果：
+             * 同步写法----
+             *     同步写法1
+             *     同步写法2
+             *     OK
+             * 异步写法----
+             *     异步写法1
+             *     异步写法2
+             *     OK
+             */
+        </script>
+    </body>
+</html>

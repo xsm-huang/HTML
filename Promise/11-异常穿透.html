@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>11-异常穿透</title>
+    </head>
+    <body>
+        <script>
+            let p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('ok');
+                    // reject('err');
+                }, 1000);
+            });
+
+            p.then((value) => {
+                console.log('11', value);
+                throw 'error11';
+            })
+                .then(
+                    (value) => {
+                        console.log('22', value);
+                    },
+                    (reason) => {
+                        console.log('22', reason);
+                    }
+                )
+                .then((value) => {
+                    console.log('33', value);
+                    throw 'error33';
+                })
+                .then((value) => {
+                    console.log('44', value);
+                })
+                .catch((reason) => {
+                    console.warn(reason);
+                });
+        </script>
+    </body>
+</html>

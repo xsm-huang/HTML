@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>自定义Promise</title>
+        <script src="./promise.js"></script>
+    </head>
+    <body>
+        <script>
+            let p = new Promise((resolve, reject) => {
+                // resolve('ok');
+                // reject('err');
+                // throw 'err';
+                setTimeout(() => {
+                    resolve('ok');
+                }, 1000);
+            });
+            console.log('1', p);
+            p.then(
+                (value) => {
+                    console.log('then1', value);
+                },
+                (reason) => {
+                    console.log('then1', reason);
+                }
+            );
+            const result2 = p.then(
+                (value) => {
+                    console.log('then2', value);
+                },
+                (reason) => {
+                    console.log('then2', reason);
+                }
+            );
+            console.log('2', p);
+            console.log('result2', result2);
+        </script>
+    </body>
+</html>
