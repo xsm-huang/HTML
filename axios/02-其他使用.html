@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>其他使用</title>
+        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    </head>
+    <body>
+        <h1>其他使用</h1>
+        <button>发送 get 请求</button>
+        <button>发送 post 请求</button>
+        <button>发送 put 请求</button>
+        <button>发送 delete 请求</button>
+
+        <script>
+            const btns = document.querySelectorAll('button');
+
+            // 发送 GET 请求
+            btns[0].addEventListener('click', function () {
+                axios
+                    .request({
+                        method: 'GEt',
+                        url: 'http://localhost:3000/comments',
+                    })
+                    .then((response) => {
+                        console.log(response);
+                    });
+            });
+
+            // 添加一篇文章
+            btns[1].addEventListener('click', function () {
+                axios
+                    .post('http://localhost:3000/comments', {
+                        body: '喜大普奔',
+                        postId: 2,
+                    })
+                    .then((response) => {
+                        console.log(response);
+                    });
+            });
+            // 修改一篇文章
+            btns[2].addEventListener('click', function () {
+                axios({
+                    method: 'PUT',
+                    url: 'http://localhost:3000/posts/3',
+                    data: {
+                        title: 'a new msg',
+                        author: 'xsm',
+                    },
+                }).then((response) => {
+                    console.log(response);
+                });
+            });
+            // 删除一篇文章
+            btns[3].addEventListener('click', function () {
+                axios({
+                    method: 'delete',
+                    url: 'http://localhost:3000/posts/3',
+                }).then((response) => {
+                    console.log(response);
+                });
+            });
+        </script>
+    </body>
+</html>

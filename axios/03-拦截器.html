@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>拦截器</title>
+        <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    </head>
+    <body>
+        <script>
+            axios.interceptors.request.use(
+                function (config) {
+                    console.log('请求拦截器 成功 1');
+                    //修改 config 中的参数
+                    // config.params = {
+                    //     a: 100,
+                    // };
+                    return config;
+                },
+                function (err) {
+                    console.log('请求拦截器 失败 1');
+                    return Promise.reject(err);
+                }
+            );
+            axios.interceptors.request.use(
+                function (config) {
+                    console.log('请求拦截器 成功 2');
+                    return config;
+                },
+                function (err) {
+                    console.log('请求拦截器 失败 2');
+                    return Promise.reject(err);
+                }
+            );
+
+            axios.interceptors.response.use(
+                function (response) {
+                    console.log('响应拦截器 成功 1');
+                    return response;
+                },
+                function (err) {
+                    console.log('响应拦截器 失败 1');
+                    return Promise.reject(err);
+                }
+            );
+            axios.interceptors.response.use(
+                function (response) {
+                    console.log('响应拦截器 成功 2');
+                    return response;
+                },
+                function (err) {
+                    console.log('响应拦截器 失败 2');
+                    return Promise.reject(err);
+                }
+            );
+
+            axios({
+                method: 'GET',
+                url: 'http://localhost:3000/posts',
+            }).then((response) => {
+                console.log('自定义回调处理成功的结果');
+                console.log(response);
+            });
+
+            /**
+             * 输出：
+             * 请求拦截器 成功 2
+             * 请求拦截器 成功 1
+             * 响应拦截器 成功 1
+             * 响应拦截器 成功 2
+             * 自定义回调处理成功的结果
+             * {data: Array(2), status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
+             */
+        </script>
+    </body>
+</html>
