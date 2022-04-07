@@ -9,6 +9,12 @@
 <script>
 export default {
     name: 'HomeNews',
+    activated() {
+        console.log('激活');
+    },
+    deactivated() {
+        console.log('失活');
+    },
 };
 </script>
 

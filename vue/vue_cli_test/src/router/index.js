@@ -9,7 +9,8 @@ import HomeMessageDetail from '../pages/HomeMessageDetail.vue';
 import VueRouter from 'vue-router';
 
 // 创建并暴露一个路由器
-export default new VueRouter({
+const router = new VueRouter({
+    mode: 'history',
     routes: [
         {
             path: '/about',
@@ -28,6 +29,7 @@ export default new VueRouter({
                     component: HomeMessage,
                     children: [
                         {
+                            meta: { isAuth: true },
                             name: 'detail',
                             path: 'detail/:id/:title',
                             component: HomeMessageDetail,
@@ -38,3 +40,13 @@ export default new VueRouter({
         },
     ],
 });
+// 前置路由守卫
+router.beforeEach((to, from, next) => {
+    if (to.meta.isAuth) {
+        if (localStorage.username === 'xsm') next();
+        else alert('看不了');
+    } else {
+        next();
+    }
+});
+export default router;
