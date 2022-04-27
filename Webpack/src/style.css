@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'FZZiYYJW';
+    src: url('./assets/FZZiYYJW.TTF') format('truetype');
+}
+
+img {
+    width: 200px;
+}
+
+.box1 {
+    width: 300px;
+    height: 100px;
+    background-color: pink;
+    font-family: "FZZiYYJW";
+}
+
