@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+        <h2>App 组件</h2>
+        <button @click="sayHello">{{ name }} {{ age }}</button>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+    name: 'App',
+    setup() {
+        let name = 'xsm';
+        let age = 18;
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+        function sayHello() {
+            alert(`hello ${name}`);
+        }
+        return {
+            name,
+            age,
+            sayHello,
+        };
+    },
+};
+</script>
